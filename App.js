@@ -11,7 +11,7 @@ import { collection, getDocs, query } from 'firebase/firestore';
 import db from './Firebase/ConfigFirebase';
 
 
-export default function Graficos() {
+export default function App() {
 
   const [bandera, setBandera] = useState(false); // Variable bandera
   const [dataSalarios, setDataSalarios] = useState({
@@ -71,7 +71,7 @@ export default function Graficos() {
 
         console.log({ labels: nombres, datasets: [{ data: salarios }] });
       } catch (error) {
-        console.error("Error al obtener documentos: ", error);
+        console.error("Error al obtener los salarios: ", error);
       }
     };
 
@@ -131,7 +131,7 @@ export default function Graficos() {
       <ScrollView contentContainerStyle={styles.scrollView}>
         {<Formulario setBandera={setBandera}/>}
         <GraficoSalarios dataSalarios={dataSalarios}/>
-        <GraficoBezier dataSalarios={dataSalarios}/>
+
         <GraficoGeneros dataGeneros={dataGeneros}/>
         <GraficoReporteEnfermedades dataReporteEnfermedades={dataReporteEnfermedades}/>
       </ScrollView>
